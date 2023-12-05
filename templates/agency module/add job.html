@@ -1,0 +1,46 @@
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_job1">
+  <table width="10" border="1" class="table table-hover">
+
+      <tr><td colspan="7" align = "center"><h2>ADD JOB DETAILS</h2></td></tr>
+    <tr>
+      <th width="217">Name
+      </th><td>
+        <input type="text" name="textfield" required pattern="[a-z A-Z]{3,26}"/>
+       </td>
+    </tr>
+    <tr>
+      <th>Details
+      </th><td>
+        <input type="text" name="textfield2" required/>
+      </td>
+    </tr>
+    <tr>
+      <th>Vacccancy no
+      </th><td>
+        <input type="number" name="textfield3" required/>
+      </td>
+    </tr>
+    <tr>
+      <th>Salary
+      </th><td>
+        <input type="text" name="textfield4" required/>
+      </td>
+    </tr>
+    <tr>
+      <th>Last date
+      </th><td>
+        <input type="date" name="textfield5" required />
+      </td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><div><input type="submit" value="ADD" class="btn btn-primary"/></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock  %}
+

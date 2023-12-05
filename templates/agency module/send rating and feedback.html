@@ -1,0 +1,39 @@
+{% extends 'agency module/agency_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="agenfeedback">
+  <table width="228" border="1">
+    <tr>
+      <td width="218">feedback
+        <label>
+        <input type="text" name="textfield" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>rating
+        <label>
+        <select name="select">
+            <option>1</option>
+            <option>1.5</option>
+            <option>2</option>
+            <option>2.5</option>
+            <option>3</option>
+            <option>3.5</option>
+            <option>4</option>
+            <option>4.5</option>
+            <option>5</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="send" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock  %}

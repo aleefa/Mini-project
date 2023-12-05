@@ -1,0 +1,32 @@
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="sendcomagency">
+  <table width="254" border="1" class="table table-hover">
+
+  <tr><td colspan="7" align = "center"><h2>SEND COMPLAINT AND VIEW REPLY</h2></td></tr>
+    <tr>
+      <th colspan="3">Complaint
+        <label>
+        <input type="text" name="textfield" required/>
+      </label>
+        <label>
+        <input type="submit" name="Submit" value="send"  class="btn btn-primary"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th width="89">Complaint</th>
+      <th width="41">Date</th>
+      <th width="109">Reply</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.complaint}}</td>
+      <td>{{ i.date}}</td>
+      <td>{{ i.reply}}</td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock  %}

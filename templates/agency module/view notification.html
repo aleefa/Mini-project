@@ -1,0 +1,21 @@
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+   <table width="254" border="1" class="table table-hover">
+
+  <tr><td colspan="7" align = "center"><h2>VIEW NOTIFICATIONS</h2></td></tr>
+    <tr>
+      <th>Notification</th>
+      <th>Date</th>
+    </tr>
+       {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.notification}}</td>
+      <td>&nbsp;{{ i.date}}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock  %}

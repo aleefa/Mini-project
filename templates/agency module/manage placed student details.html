@@ -1,0 +1,52 @@
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="search_placed_student_details#about">
+  <table width="253" border="1"class="table table-hover">
+
+        <tr><td colspan="7" align = "center"><h2>VIEW PLACED STUDENTS</h2></td></tr>
+    <tr>
+      <th colspan="7">Job
+        <label>
+        <select name="select">
+            {% for i in val1 %}
+            <option value="{{ i.id }}">{{ i.job }}</option>
+            {% endfor %}
+        </select>
+      </label>
+        <label>
+        <input type="submit" name="Submit" value="search" class="btn btn-primary" />
+      </label></th>
+    </tr>
+    <tr>
+      <th width="24">Slno</th>
+      <th width="32">Name</th>
+      <th width="31">Email</th>
+      <th width="20">Job</th>
+      <th width="35">Salary</th>
+      <th width="61">&nbsp;</th>
+    </tr>
+      {% for i in val %}
+
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.STUDENT.fname }}&nbsp;{{ i.STUDENT.lname }}</td>
+      <td>&nbsp;{{ i.STUDENT.email }}&nbsp;</td>
+      <td>&nbsp;{{ i.JOB.job }}&nbsp;</td>
+      <td>&nbsp;{{ i.JOB.salary_range }}</td>
+    
+{#      <td><p><a href="#">edit</a></p>#}
+{#      <p><a href="#">delete</a></p></td>#}
+    </tr>
+
+      {% endfor  %}
+
+{#    <tr>#}
+{#      <td colspan="7"><div align="center"><a href="#">add</a></div></td>#}
+{#    </tr>#}
+  </table>
+</form>
+</body>
+{% endblock  %}

@@ -1,0 +1,54 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+
+{% extends 'homepage/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_notification_search">
+     <table width="254" border="1" class="table table-hover">
+
+
+     <tr><td colspan="5" align = "center"><h2>SEND NOTIFICATION</h2></td></tr>
+  
+  
+  <div align="left">
+
+      <tr>
+        <th colspan="5">Date
+          <label>
+            <input type="date" name="textfield" required/>
+            </label>
+            <label>
+            <input type="submit" name="Submit" value="search" />
+          </label></th>
+      </tr>
+      <tr>
+        <th >Notification</th>
+        <th >Date</th>
+          <th></th>
+
+      </tr>
+        {% for i in val  %}
+      <tr>
+        <td>{{ i.notification }}</td>
+        <td>{{ i.date }} </td>
+<td>
+            <a href="dlt_notn/{{ i.id }}"  class="btn btn-danger">delete</a></td>
+      </tr>
+        {% endfor %}
+       <tr align="center">
+      <td colspan="5"><label>
+        <div ><a href="add_notification#about"  class="btn btn-primary">add</a></div>
+      </label></td>
+    </tr>
+     </table></form></body>
+
+
+{#</html>#}
+{% endblock %}

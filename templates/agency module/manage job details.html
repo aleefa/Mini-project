@@ -1,0 +1,42 @@
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="294" border="1">
+    <tr>
+      <td colspan="6">job name
+        <label>
+        <input type="text" name="textfield" required/>
+        </label>
+        <label>
+        <input type="submit" name="Submit" value="search" />
+        </label></td>
+    </tr>
+    <tr>
+      <td width="36">job name </td>
+      <td width="38">details</td>
+      <td width="60">no of vaccancy </td>
+      <td width="35">salary</td>
+      <td width="26">last date</td>
+      <td width="59">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.job }}</td>
+      <td>&nbsp;{{ i.details }}</td>
+      <td>&nbsp;{{ i.vaccancy }}</td>
+      <td>{{ i.salary_range }}&nbsp;</td>
+      <td>{{ i.last_date }}&nbsp;</td>
+      <td><p><a href="#">edit </a></p>
+      <p><a href="#">delete</a></p></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="6"><div align="center"><a href="add_job#about">add</a></div></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock  %}

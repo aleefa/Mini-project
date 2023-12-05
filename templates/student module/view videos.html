@@ -1,0 +1,45 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+{% extends 'student module/sindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="254" border="1" class="table table-hover">
+
+  <tr><td colspan="4" align = "center"><h2>View Videos</h2></td></tr>
+
+    <tr>
+      <th height="28" colspan="4">Agency
+        <label>
+        <input type="text" name="textfield" />
+        </label>
+        <label>
+        <input type="submit" name="Submit" value="search"  class="btn btn-primary"/>
+      </label></th>
+    </tr>
+    <tr>
+
+      <th width="59">Name</th>
+      <th width="60">Date</th>
+      <th width="130">Video</th>
+    </tr>
+       {% for i in val  %}
+    <tr>
+     <td>{{ i.AGENCY.name}}</td>
+
+      <td>{{ i.date }};</td>
+      <td><a href="../media/{{ i.video }}">video</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

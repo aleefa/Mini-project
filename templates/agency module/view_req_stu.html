@@ -1,0 +1,49 @@
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="view_req_stu_search">
+  <table width="253" border="1" class="table table-hover">
+
+        <tr><td colspan="7" align = "center"><h2>VIEW REQUESTED STUDENTS</h2></td></tr>
+    <tr>
+      <th colspan="7">Name
+        <label>
+        <input type="text" name="textfield" required/>
+      </label>
+        <label>
+        <input type="submit" name="Submit" value="search" class="btn btn-primary" />
+      </label></th>
+    </tr>
+    <tr>
+      <th width="24">Slno</th>
+      <th width="32"> Studentname</th>
+      <th width="31">Email</th>
+      <th width="31">Phone</th>
+      <th width="20">Job</th>
+      <th width="20">Date</th>
+      <th width="61">&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.STUDENT.fname }}{{ i.STUDENT.lname }}</td>
+      <td>&nbsp;{{ i.STUDENT.email }}</td>
+      <td>&nbsp;{{ i.STUDENT.phno }}</td>
+      <td>&nbsp;{{ i.JOB.job }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+    
+      <td>{% if i.status == 'pending' %}
+          <p><a href="acceptreq/{{ i.id}}">Accept</a></p>
+      <p><a href="rejectreq/{{ i.id }}">Reject</a></p>
+      {% elif i.status == 'Accepted' %} Accepted {% elif i.status == 'Rejected' %}Rejected {% endif %}</td>
+    </tr>
+      {% endfor %}
+{#    <tr>#}
+{#      <td colspan="5"><div align="center"><a href="#">add</a></div></td>#}
+{#    </tr>#}
+  </table>
+</form>
+</body>
+{% endblock  %}

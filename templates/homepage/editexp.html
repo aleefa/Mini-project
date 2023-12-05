@@ -1,0 +1,86 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+
+{% extends 'homepage/adminindex.html' %}
+{% block body %}
+
+
+
+
+
+<body>
+<form action="/editexppost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+   <table width="254" border="1" class="table table-hover">
+       <tr>
+           <td colspan="2">
+               <img src="{{ v.photo.url }}" width="100" height="100">
+           </td>
+       </tr>
+    <tr>
+      <td width="89">fname</td>
+      <td width="95"><label>
+        <input type="text" name="fname" value="{{ v.fname }}" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>lname </td>
+      <td><label>
+        <input type="text" name="lname" value="{{ v.lname }}"  required pattern="[A-Z a-z.]{1,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>place</td>
+    <td><label>
+        <input type="text" name="place" value="{{ v.place }}" required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>post</td>
+     <td><label>
+        <input type="text" name="post"  value="{{ v.post }}" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>pin</td>
+     <td><label>
+        <input type="text" name="pin" value="{{ v.pin }}" required pattern="[0-9]{6}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>phno</td>
+      <td><label>
+        <input type="text" name="phno" value="{{ v.phno }}" required pattern="[6789][0-9]{9}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td><label>
+        <input type="email" name="email" value="{{ v.email }}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>profile</td>
+      <td><label>
+        <input type="file" name="file" value="{{ v.profile }}"  accept="image/jpeg,image.png"/>
+      </label></td>
+    </tr>
+    <tr>
+
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="add" />
+        </div>
+      </label></td>
+    </tr>
+  </table>
+  <div align="center"></div>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,153 @@
+{#<!DOCTYPE html>#}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="../static/register/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../static/register/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="../static/register/images/signup-img1.jpg" alt="" height="10000px" width="1000px">
+{#                    <img src="../static/register/images/signup-img.jpg" alt="" height="10000px" width="1000px">#}
+                </div>
+                <div class="signup-form">
+                    <form method="POST" class="register-form" id="register-form" action="/s_registration_post" enctype="multipart/form-data">
+                        <h2>student registration form</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">First Name :</label>
+                                <input type="text" name="fname" id="name" required pattern="[A-Z a-z.]{3,25}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="father_name">Last Name :</label>
+                                <input type="text" name="lname" id="father_name" required pattern="[A-Z a-z.]{1,25}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">DOB</label>
+                            <input type="date" name="dob"  min="1990-01-01" max="2002-01-01" required id="address" min="1990-01-01" max="2019-12-31" required/>
+                        </div>
+                        <div class="form-radio">
+                            <label for="gender" class="radio-label">Gender :</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="radiobutton" id="male" value="male" checked>
+                                <label for="male">Male</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="radiobutton" id="female" value="female">
+                                <label for="female">Female</label>
+                                <span class="check"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label >place</label>
+
+                                     <input type="text" name="place" id="place" required pattern="[A-Z a-z.]{3,25}"/>
+                                </div>
+
+                            <div class="form-group">
+                                <label for="post">post</label>
+                                <input type="text" name="post" id="post" required pattern="[A-Z a-z.]{3,25}"/>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label >pin</label>
+
+                                     <input type="number" name="pin" id="pin" required pattern="[0-9]{6}"/>
+                                </div>
+
+                            <div class="form-group">
+                                <label for="post">phone</label>
+                                <input type="number" name="phone"  required pattern="[6789][0-9]{9}"/>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="birth_date">Photo</label>
+                            <input type="file" name="file" accept="image/jpeg,image/png" id="birth_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Email ID :</label>
+                            <input type="email" name="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}">
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Username</label>
+                           <input type="text" name="username" id="un" required><p id="message" style="color: red;"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Password</label>
+                            <input type="password" name="password" id="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+                        </div>
+                        <div class="form-submit">
+                            <input type="reset" value="Reset All" class="submit" name="reset" id="reset" />
+                            <input type="submit" value="Submit Form" class="submit" name="submit" id="submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../static/register/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/register/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+    $("#un").keyup(function(){
+    var uname;
+    uname = $(this).val();
+
+$.ajax(
+    {
+        type:"GET",
+        url: "/likepost",
+        data:{
+                 username: uname,
+
+        },
+        success: function( data )
+        {
+        if (data.is_taken) {
+
+                    $( '#message' ).text(data.error_message);
+                  }
+                  else
+                  {
+                  $( '#message' ).text("");
+                  }
+        }
+     })
+});
+
+
+</script>
+
+</html>

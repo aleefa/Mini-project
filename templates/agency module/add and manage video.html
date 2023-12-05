@@ -1,0 +1,38 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+
+
+<body>
+
+<form id="form1" name="form1" method="post" action="#">
+  <table width="254" border="1" class="table table-hover">
+
+  <tr><td colspan="7" align = "center"><h2>ADD & MANAGE VIDEO</h2></td></tr>
+    <tr>
+      <th>Name</th>
+      <th>Video</th>
+      <th>Date</th>
+        <td></td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.name}}&nbsp;</td>
+      <td><a href="{{ i.video.url }}" target="_blank">{{ i.video.url }}</a> </td>
+      <td>&nbsp;{{ i.date}}</td>
+      <td><a href="#">delete</a> </td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="3"><div align="center"><a href="add_video#about">add</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock  %}

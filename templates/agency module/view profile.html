@@ -1,0 +1,39 @@
+{% extends 'agency module/agencyindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="#">
+  <table width="254" border="1" class="table table-hover">
+
+  <tr><td colspan="7" align = "center"><h2>VIEW PROFILE</h2></td></tr>
+
+    <tr align="center">
+      <td><img src="../media/{{ val.photo }}"width="100" height="100">
+       </td>
+    </tr>
+      <tr align="center" >
+      <th>Name:
+          {{ val.name }}
+       </th>
+    </tr>
+    <tr align="center">
+      <th>Address:
+          {{ val.place }}<br>{{ val.post}}<br>{{ val.pin }}
+        </th>
+    </tr>
+
+    <tr align="center">
+      <th align="center">Pin:
+        {{ val.pin }}</th>
+    </tr>
+    <tr align="center">
+      <th>Phone:
+        {{ val.phno }}</th>
+    </tr>
+    <tr align="center">
+      <th align="center">Email:
+        {{ val.email }}</th>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock  %}

@@ -1,0 +1,118 @@
+
+{% extends 'student module/sindex.html' %}
+{% block body %}
+
+<body>
+
+<div id="v" class="v">
+
+<div class="card">
+  <img src="{{ val.photo.url }}" alt="John" style="width:100%">
+  <h1>{% if val.gender == "male" %}Mr. {% else %}Ms. {% endif %}{{ val.fname }} {{ val.lname }}</h1>
+  <h4>{{ val.place }} {{ val.post }} {{ val.pin }} </h4>
+  <h4>{{ d }}</h4>
+  <h4>{{ val.phno }}</h4>
+  <h4>{{ val.email }}</h4>
+{#  <p class="title">CEO & Founder, Example</p>#}
+{#  <p>Harvard University</p>#}
+{#  <div style="margin: 24px 0;">#}
+{#    <a href="#"><i class="fa fa-dribbble"></i></a>#}
+{#    <a href="#"><i class="fa fa-twitter"></i></a>#}
+{#    <a href="#"><i class="fa fa-linkedin"></i></a>#}
+{#    <a href="#"><i class="fa fa-facebook"#}
+{#></i></a>#}
+{#  </div>#}
+  <p><a href="/profile#about" class="btn btn-info">Edit</a></p>
+</div>
+
+</div>
+<div id="u" class="u" >
+<form id="form1" name="form1" method="post" enctype="multipart/form-data" action="/view_stud_update">
+
+  <table width="245" border="1" class="table table-striped">
+    <tr>
+      <td colspan="2"><div align="center"><img src="{{ val.photo.url }}" width="200" height="200"/> </div> </td>
+    </tr> <tr>
+      <td width="235">First name
+      </td>
+        <td>
+        <input type="text" name="fname" class="form-control" value="{{ val.fname }}" required pattern="[A-Z a-z.]{3,25}"/>
+      </td>
+    </tr>
+
+
+
+
+      <tr>
+      <td width="235">Last name
+      </td>
+        <td>
+        <input type="text" name="lname" value="{{ val.lname }}" class="form-control" required pattern="[A-Z a-z.]{1,25}"/>
+      </td>
+    </tr>
+
+
+
+    <tr>
+        <td>Dob</td>
+	  <td>
+        <input type="date" name="dob" class="form-control" value="{{d }}" min="1990-01-01" max="2019-12-31" required/>
+      </td>
+    </tr>
+
+
+
+      <tr>
+        <td>Gender</td>
+	  <td><input name="radiobutton" type="radio" value="male" {% if val.gender == "male" %} checked {% endif %}/>
+	    male
+	      <input name="radiobutton" type="radio" value="female" {% if val.gender == "female" %} checked {% endif %}/>
+        female</td>
+    </tr>
+
+            <tr>
+        <td>Place</td>
+	  <td>
+        <input type="text" name="place" class="form-control" value="{{ val.place }}" required pattern="[A-Z a-z.]{3,25}"/>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Post</td><td>
+        <input type="text" name="post" class="form-control" value="{{ val.post }}" required pattern="[A-Z a-z.]{3,25}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Pin</td><td>
+        <input type="text" name="pin" class="form-control" value="{{ val.pin }}" required pattern="[0-9]{6}" />
+      </td>
+    </tr>
+    <tr>
+      <td>Phone</td><td>
+        <input type="number" name="phone" class="form-control" value="{{ val.phno }}" required pattern="[6789][0-9]{9}" />
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td><td>
+        <input type="email" name="email"  class="form-control" value="{{ val.email }}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Profile</td><td>
+        <input type="file" name="file" accept="image/jpeg,image.png"  />
+      </td>
+    </tr>
+
+    <tr align="center">
+      <td colspan="2"><label>
+        <div >
+          <input type="submit" name="Submit" value="Update"  class="btn btn-primary"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</div>
+</body>
+{#</html>#}
+{% endblock %}
